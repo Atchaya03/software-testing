@@ -1,0 +1,101 @@
+Queries on operators
+
+1) And Operator
+Syntax:
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+
+
+Select * from emp;
+
+select empno from emp;
+select empno, ename from emp;
+select mgr from emp;
+
+
+1.Fetch Details of emp Who is working either clerk  AND name is smith.
+
+select * from emp where job='clerk' and ename='smith';
+
+2.Display Details of emp whose hiredate is ‘17-DEC-80’ and job is clerk.
+
+select * from emp where hiredate='1980-12-17' and job='clerk';
+
+3.Dispaly Details of emp whose sal is 2450 and commission is 50
+
+select * from emp where sal=2450 and comm=50;
+
+4.Dispaly sal of emp whose name is scott and empno is 7788
+
+select sal from emp where ename='scott'  and empno=7788;
+-----------------------------------------------------------------------------------------------
+
+*Display ename,empno, sal of employee whose name is king;
+
+select ename, empno,sal from emp where ename='king';    ................sequence according to query
+--------------------------------------------------------------------------------
+OR Operator
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+
+1.Fetch the details of emp who is working as a ‘CLERK’ or SALESMAN
+
+select * from emp where job='clerk' or job='salesman';
+
+2.Display the details of emp whose sal is 2000 or 5000
+
+select * from emp where sal =2000 or sal =5000;
+
+3.Display the details of emp whose sal is 1800 or name is smith
+
+select * from emp where sal=1800 or ename='smith';
+-----------------------------------------------------------------------------------
+Not operator
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+
+1.Display the ename except king.
+select ename from emp where not ename='king';
+------------------------------------------------------------------------------------
+BETWEEN Operator
+
+-- Fetch the data between Specified range
+
+SELECT column_name
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2; 
+
+1.Fetch the details of emp whose sal is between 1000 and 3000
+
+select * from emp where sal between 1000 and 3000;
+
+2.Fetch the details of emp hired in the range of 20 feb  81 and 09 dec 82
+
+select * from emp where hiredate between '1981-02-20' and '1982-12-09';
+
+3. Fetch the details of employee where employee number between 7000 and 7500
+
+select * from emp where empno between  7000 and 7500;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

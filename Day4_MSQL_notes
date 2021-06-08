@@ -1,0 +1,184 @@
+Order by
+---The ORDER BY keyword is used to sort the result-set in ascending or descending order
+
+
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+------------------------------------------------------------------------------
+
+Q. Display salary in acse order
+
+select sal from emp order by sal asc;
+
+Q. Display details of employees and sal in dec order
+select * from emp order by sal desc;
+----------------------------------------------------------------------------------
+Aggregate Functions
+Following are the Aggregate Functions...
+1. Count()
+2. Sum()
+3. Avg()
+4. Min()
+5. Max()
+
+Syntax:
+select aggregate_function(column) from table;
+
+Q1.Display minimum salary
+select min(sal) from emp;
+
+Q2. Display max sal
+select max(sal) from emp;
+
+Q3. Display avarage salary
+select avg(sal) from emp;
+
+Q4. Display number of employees from table
+Select count(empno) from emp;
+-------------------------------------------------------------------------
+The SQL GROUP BY Statement:-
+The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) 
+to group the result-set by one or more columns.
+
+GROUP BY Syntax
+
+SELECT column_name
+FROM table_name
+WHERE condition
+GROUP BY column_name
+
+select DEPTNO from EMP;
+
+select DEPTNO from EMP group by DEPTNO;
+
+Q1.Count no. Of Employees in each department.
+select DEPTNO, count(*)  from EMP group by DEPTNO;
+
+-----------------------------------------------------------------------------------
+Q2.Count no of employees in deparments and job.
+select DEPTNO,JOB, count(*)  from EMP group by DEPTNO,JOB;
+------------------------------------------------------------------------------------
+Q3.Display minimum sal in each department.
+select deptno,min(sal) from emp group by deptno;
+
+Q4.Display max sal in each department.
+select deptno, max(sal) from emp group by deptno;
+----------------------------------------------------------------------------------
+
+desc dept;
+----------------------------------------------------------------------------------
+
+
+/*
+Subqueries
+
+-- Subqueries means Nested query.query within query.
+-- Two queries are there, inner and outer query.
+-- If one query is not enough to get the output, use subquery
+-- If we have to use 2 tables for output, use subquery
+-- We cannot use aggregate function and  select * simultaneously in a simple query.
+-- We can’t use select * in inner query
+-- In outer query, whatever column name we have used in where clause, 
+   we have to use that column name only or column
+   having same type of data in the inner query.
+-- Innermost query runs first, then outer query runs.
+
+*/
+	outer query(inner query)                                                             
+select *,max(sal) from emp;
+
+Q1.Display details of employee whose salary is maximum as compare to others
+
+select * from emp where sal = (select max(sal) from emp);
+
+Q2.Display details of employee whose salary is greater than blake’s salary 
+
+select * from emp where sal>(select sal from emp where ename ='blake');
+
+Q3. display details of employee whose salary is min as compare to others
+
+select * from emp where sal=(select min(sal) from emp);
+
+Q4.Display details of employee whose salary is second highest salary            
+select * from EMP where sal = (select max(sal) from EMP where sal < (select max(sal) from EMP));  
+---------------------------------------------------------------------------------------------------------         
+                                       
+Q5.Display details of employee who are working in chicago            
+
+select * from EMP where DEPTNO = (select DEPTNO from DEPT where LOC = 'CHICAGO');
+
+Q6. Display details of employee who are working in dallas
+select * from EMP where DEPTNO = (select DEPTNO from DEPT where LOC = 'Dallas');
+
+Q7.Display Location where King is working
+select loc from dept where deptno=(select deptno from emp where ename='king');
+
+Q8.Display location of smith
+select loc from dept where deptno=(select deptno from emp where ename='smith');
+
+
+
+
+
+
+
+
+
+/*
+Subqueries
+
+-- Subqueries means Nested query.query within query.
+-- Two queries are there, inner and outer query.
+-- If one query is not enough to get the output, use subquery
+-- If we have to use 2 tables for output, use subquery
+-- We cannot use aggregate function and  select * simultaneously in a simple query.
+-- We can’t use select * in inner query
+-- In outer query, whatever column name we have used in where clause, 
+   we have to use that column name only or column
+   having same type of data in the inner query.
+-- Innermost query runs first, then outer query runs.
+
+*/
+	outer query(inner query)                                                             
+select *,max(sal) from emp;
+
+Q1.Display details of employee whose salary is maximum as compare to others
+
+select * from emp where sal = (select max(sal) from emp);
+
+Q2.Display details of employee whose salary is greater than blake’s salary 
+
+select * from emp where sal>(select sal from emp where ename ='blake');
+
+Q3. display details of employee whose salary is min as compare to others
+
+select * from emp where sal=(select min(sal) from emp);
+
+Q4.Display details of employee whose salary is second highest salary            
+select * from EMP where sal = (select max(sal) from EMP where sal < (select max(sal) from EMP));  
+---------------------------------------------------------------------------------------------------------         
+                                       
+Q5.Display details of employee who are working in chicago            
+
+select * from EMP where DEPTNO = (select DEPTNO from DEPT where LOC = 'CHICAGO');
+
+Q6. Display details of employee who are working in dallas
+select * from EMP where DEPTNO = (select DEPTNO from DEPT where LOC = 'Dallas');
+
+Q7.Display Location where King is working
+select loc from dept where deptno=(select deptno from emp where ename='king');
+
+Q8.Display location of smith
+select loc from dept where deptno=(select deptno from emp where ename='smith');
+
+
+
+
+
+
+
+
+
+
+

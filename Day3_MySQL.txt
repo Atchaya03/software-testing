@@ -1,0 +1,80 @@
+LIKE OPERATOR
+
+/*the Like operator is used to list all rows in a table whose column 
+values matches a specific pattern. For this purpose we have to use wildcard
+operator'%'.
+
+S%--> name Start with S            
+%S--> Name ends with S
+%S%--> Having S
+*/
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE column LIKE pattern;
+
+Q1.Fetch name of employee whose name starts with S 
+
+select ename  from emp where ename like 's%';
+
+Q2.Fetch name of employee whose name starts with S or  end with S.
+
+select ename from emp where ename like 's%' or ename like '%s';
+
+Q3.Fetch details of employee in which  L is on second position in employee’s name.    
+
+select * from emp where ename like '_L%';
+
+Q4.Fetch the details of emp whose name starts with T and MGR is 7698
+
+select * from emp where ename like 'T%' and mgr=7698;
+
+-------------------------------------------------------------------------------------------------
+ARITHMATIC OPERATORS
+
+Addition 
+Substraction
+Multiplication 
+Division
+
+Q1.Calculate annual salary of employee
+select ename,sal*12 from emp;
+
+Q2.Display sal and add 100 rs. More in sal
+
+select ename,sal,sal+100 from emp;
+
+select * from emp where ename like '%s';
+
+Q3.Dispaly ename and hiredate of employee and calculate 15 days sal
+select ename, hiredate , sal/2 from emp;
+
+-----------------------------------------------------------
+Comparison operator
+
+(<,>,<=,>=,=)
+
+Q1.display the name and sal  of emp who earn greater than 500
+
+
+select ename,sal from emp where sal>500;
+
+Q2.Display emp  name, sal & comm  whose sal is greater than commission
+
+select ename, sal,comm  from emp where sal> comm;
+
+Q3.Display emp and sal  name whose sal is greater than commission 1250
+
+----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

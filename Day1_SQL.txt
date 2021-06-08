@@ -1,0 +1,95 @@
+To create Schema :-
+
+CREATE SCHEMA `db`;
+
+To create table:-
+
+Create table Table_name(Column_name1 datatype, column_name2 datatype........) 
+
+Create table student(ID int(10), Name varchar(20), Adress varchar(100) );
+----------------------------------------------------------------------------------
+
+To check all details from table:-
+Select * from student;
+-------------------------------------------------------------------------------------
+To insert values in the table:-
+
+insert into table_name values(data1,data2....data)
+
+insert into student values(101, 'Saileela', 'ABC');
+---------------------------------------------------------------------------------
+To add new column in table:-
+
+alter table table_name add column_name datatype;
+
+alter table student add marks int;
+
+---------------------------------------------------------------------------------
+To minimize above problem....use update command
+
+Update table_name set column_name=data where condition;
+
+update student set marks=100 where id=101;
+---------------------------------------------------------------------
+select * from student;
+
+
+To check description of table:-
+Desc student;
+---------------------------------------------------------------------------
+To modify datatype of particular column:-
+
+alter table table_name modify column_name datatype;
+
+alter table student modify marks double;
+------------------------------------------------------------------------
+To change column name:-
+
+alter table table_name change columm old_column_name  new_column_name datatype;
+
+alter table student change column id rollno int;
+
+----------------------------------------------------------------------------
+To rename table name:-
+
+rename table old_table_name to new_table_name; 
+
+rename table student to MYTAB;
+-----------------------------------------------------------------------------
+To delete particular row:-
+delete from table_name where condition...;
+
+delete from MYTAB where rollno=105;  .......this for single row
+
+delete from MYTAB;    .........for all rows
+----------------------------------------------------------------------------------
+Rollback;
+---------------------------------------------------------------------------------
+To delete particular column:-
+
+alter table table_name drop column column_name;
+
+alter table mytab drop column marks;
+
+
+alter+add= to add new column
+alter+drop= to drop any column
+alter+modify= to change datatype
+alter+change= to rename column name
+--------------------------------------------------------------------------------
+
+To delete or remove all data with structure:-
+
+Drop table table_name;
+
+drop table mytab;
+
+
+
+
+
+
+
+
+
+
